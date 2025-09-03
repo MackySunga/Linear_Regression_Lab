@@ -1,0 +1,50 @@
+## Quick Start
+
+1. **Clone** or download this repo.
+2. Put vendor files in `vendor/` (exact filenames):
+   - `plotly-2.35.2.min.js`
+   - `papaparse-5.4.1.min.js`
+3. Open `index.html` in your browser.
+
+If a yellow warning pill appears under the title, a vendor file is missing or misnamed.
+
+> Tip: If you don’t need offline support, you can swap to CDN links in `index.html` — or I can add a fallback loader that auto-loads from a CDN when local files are missing.
+
+---
+
+## CSV format
+
+- Requires a **header row** (e.g., `X,Y,Group`).
+- Only numeric columns appear in the X/Y dropdowns.
+- Other columns can be used for **Color by** or **Symbol by** encodings.
+
+A sample CSV is provided at `assets/demo.csv`.
+
+---
+
+## Features in Depth
+
+- **Adjustable Line:** Control slope `m` and intercept `b` with sliders/numeric inputs. An **error band ±d** shows a tube around your line.
+- **OLS Reference:** The ordinary least squares fit is computed in-browser (no servers), with equation and R².
+- **Encodings:** Map a column to **color** and/or **marker symbol** to visualize clusters or strata.
+- **Diagnostics:** For the selected scope (viewport/all), we compute:
+  - Central tendencies: mean, median, mode
+  - Dispersion: min, Q1, Q3, max, range, variance, std dev, IQR, MAD
+- **Outliers:** Three modes
+  - **Residual**: outside the error band around your line
+  - **IQR**: outside a green rectangle k×IQR wide/tall (k configurable)
+  - **Custom**: user-defined rectangle bounds; helper buttons set to IQR or data bounds
+- **Exports:** Top‑N outliers table + one-click **CSV download**.
+
+All computation happens locally in the browser.
+
+---
+
+## Local Development
+
+No build step needed. Just open `index.html`.
+
+If your environment blocks `file://` access, serve locally:
+```bash
+python -m http.server 5173
+# open http://localhost:5173
