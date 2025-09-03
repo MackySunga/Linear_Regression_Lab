@@ -1,0 +1,19 @@
+Directory Structure
+
+.
+├─ index.html
+├─ css/
+│  └─ styles.css
+├─ js/
+│  ├─ offline-guard.js   # warns if vendors missing (safe stubs)
+│  ├─ utils.js           # math & helpers
+│  └─ app.js             # UI, plotting, stats, outliers, tests
+├─ vendor/
+│  ├─ plotly-2.35.2.min.js        # add this for offline
+│  └─ papaparse-5.4.1.min.js      # add this for offline
+├─ assets/
+│  └─ demo.csv
+└─ .github/
+   ├─ ISSUE_TEMPLATE/
+   ├─ workflows/
+   └─ PULL_REQUEST_TEMPLATE.md
